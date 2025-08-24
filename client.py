@@ -1,8 +1,7 @@
-# client.py
 import socket
 import threading
 
-SERVER_HOST = '127.0.0.1'  # change to server's LAN IP for multi-device
+SERVER_HOST = '127.0.0.1'  
 SERVER_PORT = 55556
 
 nickname = input("Choose a nickname: ").strip() or "Guest"
