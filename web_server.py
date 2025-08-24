@@ -15,5 +15,4 @@ def handle_message(msg):
     send(msg, broadcast=True)  # Broadcasts to all clients
 
 if __name__ == '__main__':
-    # Replace 0.0.0.0 with your local IP if you want to connect phone
     socketio.run(app, host='0.0.0.0', port=5000, debug=True)
