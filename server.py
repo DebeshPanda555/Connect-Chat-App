@@ -8,7 +8,7 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
 
-clients = []  # list of (socket, nickname)
+clients = []  
 
 def broadcast(message, sender_socket=None):
     for client_socket, _ in clients:
@@ -31,7 +31,7 @@ def handle_client(client_socket, nickname):
         try:
             message = client_socket.recv(1024).decode("utf-8")
             if message:
-                full_message = f"{nickname}: {message}"   # 👈 Prepend nickname
+                full_message = f"{nickname}: {message}"  
                 print(full_message)
                 broadcast(full_message, client_socket)
             else:
@@ -47,7 +47,6 @@ while True:
     client_socket, addr = server.accept()
     print(f"🔗 Connected with {addr}")
 
-    # first thing client sends = nickname
     nickname = client_socket.recv(1024).decode("utf-8")
     clients.append((client_socket, nickname))
 
