@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connect: Chat App</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app" id="appRoot">
+    <div class="shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">C</div>
+          <div>
+            <h1>Connect</h1>
+            <small class="muted"></small>
+          </div>
+          <div class="spacer"></div>
+          <button id="themeBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">🌗</button>
+        </div>
+        <div class="search">
+          <input id="searchInput" type="search" placeholder="Search conversations" />
+        </div>
+        <div class="convos" id="convoList" role="listbox" aria-label="Conversations"></div>
+        <div class="sidebar-actions">
+          <button id="newChatBtn" class="primary">+ New Chat</button>
+          <button id="clearBtn" class="ghost" title="Clear all data">Reset</button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main" aria-label="Chat window">
+        <header class="topbar" id="topbar">
+          <div class="presence" aria-hidden="true"></div>
+          <div class="title">
+            <span class="name" id="chatName">Welcome</span>
+            <span class="status" id="chatStatus">Say hi 👋</span>
+          </div>
+          <div class="spacer"></div>
+          <button id="exportBtn" class="icon-btn" title="Export chat JSON" aria-label="Export chat">⤓</button>
+        </header>
+
+        <section class="messages" id="messages" aria-live="polite"></section>
+
+        <footer class="composer" aria-label="Message composer">
+          <form id="composerForm" autocomplete="off">
+            <button type="button" id="attachBtn" class="icon-btn" title="Attach (demo)">📎</button>
+            <input id="msgInput" type="text" placeholder="Type a message..." required />
+            <button id="sendBtn" class="send" type="submit" title="Send">Send ➤</button>
+          </form>
+          <div id="typing" class="typing hidden"><span></span><span></span><span></span></div>
+        </footer>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
